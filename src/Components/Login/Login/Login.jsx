@@ -42,10 +42,10 @@ const Login = () => {
                     </a>
                   </label>
                   <p className="label-text-alt ">
-                    Already have an account?{" "}
+                    Don't have an account?
                     <Link
                       to="/register"
-                      className="link link-hover text-primary font-bold">
+                      className="link link-hover text-primary font-bold ml-1">
                       Register now!
                     </Link>
                   </p>
