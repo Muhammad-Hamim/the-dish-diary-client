@@ -1,6 +1,7 @@
 import Lottie from "lottie-react";
 import register from "../../../assets/LottieAnimation/register.json";
 import React, { useContext, useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
 import { Link } from "react-router-dom";
@@ -12,7 +13,7 @@ const Register = () => {
   const [photoUrl, setPhotoUrl] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [showPass, setShowPass] = useState(true);
   const handleRegister = (event) => {
     const form = event.target;
     event.preventDefault();
@@ -95,15 +96,32 @@ const Register = () => {
                   <label className="label">
                     <span className="label-text">Password</span>
                   </label>
-                  <input
-                    type="text"
-                    placeholder="password"
-                    value={password}
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                    }}
-                    className="input input-bordered"
-                  />
+                  <div class="relative">
+                    <input
+                      type={showPass ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
+                      placeholder="password"
+                      className="input input-bordered pr-12 w-full"
+                    />
+                    <label className="text-2xl absolute top-1/2 -translate-y-1/2 bottom-0 right-4 cursor-pointer">
+                      {showPass ? (
+                        <FaEyeSlash
+                          onClick={() => {
+                            setShowPass(!showPass);
+                          }}
+                        />
+                      ) : (
+                        <FaEye
+                          onClick={() => {
+                            setShowPass(!showPass);
+                          }}
+                        />
+                      )}
+                    </label>
+                  </div>
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">
                       Forgot password?

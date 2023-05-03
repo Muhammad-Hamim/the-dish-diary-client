@@ -1,20 +1,22 @@
 import Lottie from "lottie-react";
 import login from "../../../assets/LottieAnimation/login.json";
 import React, { useContext, useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-  const { loginUser} = useContext(AuthContext);
+  const { loginUser } = useContext(AuthContext);
+  const [showPass, setShowPass] = useState(true);
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleLogin = (e) => {
-    setErrorMessage(null)
-    setSuccessMessage(null)
+    setErrorMessage(null);
+    setSuccessMessage(null);
     e.preventDefault();
     loginUser(email, password)
       .then((result) => {
@@ -55,28 +57,46 @@ const Login = () => {
                   <label className="label">
                     <span className="label-text">Password</span>
                   </label>
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                    }}
-                    placeholder="password"
-                    className="input input-bordered"
-                  />
+                  <div class="relative">
+                    <input
+                      type={showPass ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
+                      placeholder="password"
+                      className="input input-bordered pr-12 w-full"
+                    />
+                    <label className="text-2xl absolute top-1/2 -translate-y-1/2 bottom-0 right-4 cursor-pointer">
+                      {showPass ? (
+                        <FaEyeSlash
+                          onClick={() => {
+                            setShowPass(!showPass);
+                          }}
+                        />
+                      ) : (
+                        <FaEye
+                          onClick={() => {
+                            setShowPass(!showPass);
+                          }}
+                        />
+                      )}
+                    </label>
+                  </div>
+
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">
                       Forgot password?
                     </a>
                   </label>
-                  <p className="label-text-alt ">
+                  <label className="label-text-alt ">
                     Don't have an account?
                     <Link
                       to="/register"
                       className="link link-hover text-primary font-bold ml-1">
                       Register now!
                     </Link>
-                  </p>
+                  </label>
                   <p className="mt-4 text-error">{errorMessage}</p>
                   <p className="mt-4 text-success">{successMessage}</p>
                 </div>
