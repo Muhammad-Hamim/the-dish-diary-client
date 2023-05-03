@@ -1,15 +1,34 @@
 import Lottie from "lottie-react";
 import register from "../../../assets/LottieAnimation/register.json";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
-  const [name, setName] = useState('');
-  const [photoUrl, setPhotoUrl] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { registerUser, setProfile } = useContext(AuthContext);
+  const [name, setName] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    registerUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        setProfile(name, photoUrl)
+          .then(() => {})
+          .catch((error) => {
+            console.log(error);
+          });
+        
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -28,10 +47,12 @@ const Register = () => {
                     <span className="label-text">Name</span>
                   </label>
                   <input
-                    
                     type="text"
                     name="name"
                     value={name}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                    }}
                     placeholder="name"
                     className="input input-bordered"
                   />
@@ -43,6 +64,11 @@ const Register = () => {
                   <input
                     type="text"
                     placeholder="Photo url"
+                    name="photoUrl"
+                    value={photoUrl}
+                    onChange={(e) => {
+                      setPhotoUrl(e.target.value);
+                    }}
                     className="input input-bordered"
                   />
                 </div>
@@ -51,8 +77,13 @@ const Register = () => {
                     <span className="label-text">Email</span>
                   </label>
                   <input
-                    type="text"
+                    type="email"
+                    name="email"
                     placeholder="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
                     className="input input-bordered"
                   />
                 </div>
@@ -63,6 +94,10 @@ const Register = () => {
                   <input
                     type="text"
                     placeholder="password"
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
                     className="input input-bordered"
                   />
                   <label className="label">

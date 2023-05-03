@@ -1,11 +1,31 @@
 import Lottie from "lottie-react";
 import login from "../../../assets/LottieAnimation/login.json";
-import React from "react";
+import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  const { loginUser} = useContext(AuthContext);
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleLogin = (e) => {
+    setErrorMessage(null)
+    setSuccessMessage(null)
+    e.preventDefault();
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        setSuccessMessage("User logged in successfully!");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setErrorMessage(error.message);
+      });
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -16,13 +36,17 @@ const Login = () => {
           <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
             <div className="card-body">
               <h2 className="text-xl font-semibold card-title">Please Login</h2>
-              <form>
+              <form onSubmit={handleLogin}>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
                   </label>
                   <input
-                    type="text"
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
                     placeholder="email"
                     className="input input-bordered"
                   />
@@ -32,7 +56,11 @@ const Login = () => {
                     <span className="label-text">Password</span>
                   </label>
                   <input
-                    type="text"
+                    type="password"
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
                     placeholder="password"
                     className="input input-bordered"
                   />
@@ -49,6 +77,8 @@ const Login = () => {
                       Register now!
                     </Link>
                   </p>
+                  <p className="mt-4 text-error">{errorMessage}</p>
+                  <p className="mt-4 text-success">{successMessage}</p>
                 </div>
                 <div className="form-control mt-6">
                   <button type="submit" className="btn btn-primary">
