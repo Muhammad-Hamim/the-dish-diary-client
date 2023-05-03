@@ -1,11 +1,15 @@
 import Lottie from "lottie-react";
 import register from "../../../assets/LottieAnimation/register.json";
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  const [name, setName] = useState('');
+  const [photoUrl, setPhotoUrl] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -18,13 +22,16 @@ const Register = () => {
               <h2 className="text-xl font-semibold card-title">
                 Please Register
               </h2>
-              <form>
+              <form onSubmit={handleRegister}>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Name</span>
                   </label>
                   <input
+                    
                     type="text"
+                    name="name"
+                    value={name}
                     placeholder="name"
                     className="input input-bordered"
                   />
