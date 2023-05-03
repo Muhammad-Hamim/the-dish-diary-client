@@ -2,13 +2,12 @@ import React from "react";
 import NavigationBar from "../../Header/NavigationBar";
 import { Outlet } from "react-router-dom";
 import Footer from "../../Footer/Footer";
+import Hero from "../Main/Hero";
 
 const Home = () => {
   return (
     <>
-      <NavigationBar></NavigationBar>
-      <Outlet></Outlet>
-      <Footer></Footer>
+      <Hero></Hero>
     </>
   );
 };
