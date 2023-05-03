@@ -50,6 +50,7 @@ const Login = () => {
                       setEmail(e.target.value);
                     }}
                     placeholder="email"
+                    required
                     className="input input-bordered"
                   />
                 </div>
@@ -65,6 +66,7 @@ const Login = () => {
                         setPassword(e.target.value);
                       }}
                       placeholder="password"
+                      required
                       className="input input-bordered pr-12 w-full"
                     />
                     <label className="text-2xl absolute top-1/2 -translate-y-1/2 bottom-0 right-4 cursor-pointer">

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import logo from '../../assets/logo.png'
 
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -43,8 +44,8 @@ const NavigationBar = () => {
               </li>
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
-            The Dish Diary
+          <Link to="/" className="normal-case text-xl">
+            <img className="h-16 w-full" src={logo} alt="" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -75,13 +76,12 @@ const NavigationBar = () => {
                   tabIndex={0}
                   className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                   <li>
-                    <a className="justify-between">
-                      Profile
-                      <span className="badge">New</span>
-                    </a>
+                    <p className="justify-between">
+                      {user.displayName}
+                    </p>
                   </li>
                   <li>
-                    <a>Settings</a>
+                    <p>{user.email}</p>
                   </li>
                   <li>
                     <a onClick={handleLogOut}>Logout</a>
