@@ -13,8 +13,9 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegister = (e) => {
-    e.preventDefault();
+  const handleRegister = (event) => {
+    const form = event.target;
+    event.preventDefault();
     registerUser(email, password)
       .then((result) => {
         console.log(result.user);
@@ -23,7 +24,10 @@ const Register = () => {
           .catch((error) => {
             console.log(error);
           });
-        
+        setName('');
+        setPhotoUrl('');
+        setEmail('');
+        setPassword('');
       })
       .catch((error) => {
         console.log(error.message);
