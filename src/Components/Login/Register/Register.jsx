@@ -9,14 +9,33 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
   const { registerUser, setProfile } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
   const [name, setName] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(true);
+
+  
   const handleRegister = (event) => {
-    const form = event.target;
     event.preventDefault();
+    setErrorMessage('');
+    if (password.length < 6) {
+      setErrorMessage("Please provide at least 6 character password");
+      return;
+    } else if (!/^(?=.*[a-z])/.test(password)) {
+      setErrorMessage("Please provide at least one lowercase letter");
+      return;
+    } else if (!/^(?=.*[A-Z])/.test(password)) {
+      setErrorMessage("Please provide at least one uppercase letter");
+      return;
+    } else if (!/(?=.*\d.*\d)/.test(password)) {
+      setErrorMessage("Please provide at least two number");
+      return;
+    } else if (!/(?=.*[!@#$%^&*()-_=+])/.test(password)) {
+      setErrorMessage("Please provide at least one special character");
+      return;
+    } 
     registerUser(email, password)
       .then((result) => {
         console.log(result.user);
@@ -25,10 +44,10 @@ const Register = () => {
           .catch((error) => {
             console.log(error);
           });
-        setName('');
-        setPhotoUrl('');
-        setEmail('');
-        setPassword('');
+        setName("");
+        setPhotoUrl("");
+        setEmail("");
+        setPassword("");
       })
       .catch((error) => {
         console.log(error.message);
@@ -89,6 +108,7 @@ const Register = () => {
                     onChange={(e) => {
                       setEmail(e.target.value);
                     }}
+                    required
                     className="input input-bordered"
                   />
                 </div>
@@ -96,7 +116,7 @@ const Register = () => {
                   <label className="label">
                     <span className="label-text">Password</span>
                   </label>
-                  <div class="relative">
+                  <div className="relative">
                     <input
                       type={showPass ? "text" : "password"}
                       value={password}
@@ -104,6 +124,7 @@ const Register = () => {
                         setPassword(e.target.value);
                       }}
                       placeholder="password"
+                      required
                       className="input input-bordered pr-12 w-full"
                     />
                     <label className="text-2xl absolute top-1/2 -translate-y-1/2 bottom-0 right-4 cursor-pointer">
@@ -122,6 +143,7 @@ const Register = () => {
                       )}
                     </label>
                   </div>
+                  <p className="text-error">{errorMessage}</p>
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">
                       Forgot password?
