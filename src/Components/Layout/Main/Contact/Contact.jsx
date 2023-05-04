@@ -40,7 +40,7 @@ const Contact = () => {
                   className="textarea resize-none h-44 textarea-bordered bg-transparent border-2 border-primary"></textarea>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Send Message</button>
               </div>
             </div>
           </div>
