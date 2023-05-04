@@ -18,10 +18,10 @@ A list of technologies used within the project:
 ***
 #Some_key_feature_for_this_website
 ***
-*This is a chef recipe hunter website. Where you will find some awesome chef and their delicious recipe
-*On the home page first their is a navbar the navbar has three different data. One logo with home page link, a menu Home,Blog,Chef and a login button.
-*If you are new in this website you find the log in button on the navbar. But if you already logged into this website you will find your image 
-*When you hover on the your image you will see you name. If you click on your image their is a dropdown section where you see your name, email and a logout button. 
-*If you click on the log out button. You will be logged out form the website.
+* This is a chef recipe hunter website. Where you will find some awesome chef and their delicious recipe
+* On the home page first their is a navbar the navbar has three different data. One logo with home page link, a menu Home,Blog,Chef and a login button.
+* If you are new in this website you find the log in button on the navbar. But if you already logged into this website you will find your image 
+* When you hover on the your image you will see you name. If you click on your image their is a dropdown section where you see your name, email and a logout button. 
+* If you click on the log out button. You will be logged out form the website.
 
 
