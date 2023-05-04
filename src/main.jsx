@@ -7,23 +7,28 @@ import Login from "./Components/Login/Login/Login";
 import Register from "./Components/Login/Register/Register";
 import Main from "./Components/Layout/Home/Main";
 import AuthProvider from "./Components/Providers/AuthProvider";
-import Recipe from "./Components/Layout/Main/Chef/Recipe/Recipe";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import NotFound from "./Components/ErrorPage/NotFound";
+import Recipe from "./Components/Layout/Main/Chef/Recipe/Recipe";
+import SingleChef from "./Components/Layout/Main/Chef/SingleChef";
+import Chef from "./Components/Layout/Main/Chef/Chef";
+import Blog from "./Components/Layout/Main/Blog/Blog";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
       },
+      
       {
-        path: "*",
-        element: <NotFound></NotFound>,
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
         path: "/login",
@@ -34,9 +39,16 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
+        path: "/recipe",
+        element: <Chef></Chef>,
+      },
+      {
         path: "/recipe/:id",
+        element: <Recipe></Recipe>,
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/recipe/${params.id}`);
+          return fetch(
+            `https://the-dish-diary-server.vercel.app/recipe/${params.id}`
+          );
         },
       },
     ],

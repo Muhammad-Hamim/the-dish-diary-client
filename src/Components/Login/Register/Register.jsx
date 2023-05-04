@@ -4,7 +4,7 @@ import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
@@ -16,12 +16,13 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
-
+  const navigate = useNavigate();
   
 const handleGoogleLogin = () => {
   googleRegister()
     .then((result) => {
       console.log(result);
+      navigate("/");
     })
     .catch((error) => {
       console.log(error);
@@ -31,6 +32,7 @@ const handleGithubLogin = () => {
   githubRegister()
     .then((result) => {
       console.log(result);
+      navigate("/");
     })
     .catch((error) => {
       console.log(error);
@@ -68,6 +70,7 @@ const handleGithubLogin = () => {
         setPhotoUrl("");
         setEmail("");
         setPassword("");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error.message);

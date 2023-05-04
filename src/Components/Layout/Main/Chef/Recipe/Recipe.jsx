@@ -7,22 +7,24 @@ import { ThreeCircles } from "react-loader-spinner";
 const Recipe = () => {
   const { id } = useParams();
   const recipe = useLoaderData();
-  const [loading, setLoading] = useState(true);
   const [chef, setChef] = useState([]);
-  const navigation = useNavigation();
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const loadData = async () => {
-      const res = await fetch(`http://localhost:5000/chef/${id}`);
+      const res = await fetch(
+        `https://the-dish-diary-server.vercel.app/chef/${id}`
+      );
       const chefInfo = await res.json();
       setChef(chefInfo);
+      console.log(chefInfo);
       setLoading(false);
     };
     loadData();
   }, []);
-
-  const { name, picture, experience_years, likes, description } =
-    chef;
-  if (navigation.state == 'loading') {
+  const navigation = useNavigation();
+  const { name, picture, experience_years, likes, description } = chef;
+  if (navigation.state == "loading" || loading) {
     return (
       <div className="flex justify-center items-center h-screen z-50">
         <ThreeCircles
@@ -67,11 +69,7 @@ const Recipe = () => {
         </div>
         <div className="grid grid-cols-1 gap-12 py-16 px-8 lg:px-24">
           {recipe.map((singleRecipe) => {
-            return (
-              <SingleRecipe
-                key={singleRecipe.id}
-                recipe={singleRecipe}></SingleRecipe>
-            );
+            return <SingleRecipe recipe={singleRecipe}></SingleRecipe>;
           })}
         </div>
       </div>

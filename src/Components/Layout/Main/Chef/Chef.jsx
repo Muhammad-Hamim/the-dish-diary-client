@@ -6,10 +6,9 @@ import { useNavigation } from 'react-router-dom';
 const Chef = () => {
   const [chef, setChef] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigation = useNavigation();
   useEffect(() => {
     const loadData = async () => {
-      const res = await fetch("http://localhost:5000/chef");
+      const res = await fetch("https://the-dish-diary-server.vercel.app/chef");
       const data = await res.json();
       setChef(data);
       // console.log(data)
@@ -17,7 +16,7 @@ const Chef = () => {
     }
     loadData();
   }, [])
-  if (navigation.state == 'loading') {
+  if (loading) {
     return (
       <div className="flex justify-center items-center h-screen z-50">
         <ThreeCircles

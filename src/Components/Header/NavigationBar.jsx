@@ -48,7 +48,11 @@ const NavigationBar = () => {
                 </NavLink>
               </li>
               <li>
-                <a>Recipe</a>
+                <NavLink
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                  to="/recipe">
+                  Chef
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -73,7 +77,11 @@ const NavigationBar = () => {
               </NavLink>
             </li>
             <li>
-              <a>Recipe</a>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "")}
+                to="/recipe">
+                Chef
+              </NavLink>
             </li>
           </ul>
         </div>
