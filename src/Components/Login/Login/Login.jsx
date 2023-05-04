@@ -4,21 +4,33 @@ import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-  const { loginUser, googleRegister } = useContext(AuthContext);
+  const { loginUser, googleRegister, githubRegister } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const handleGoogleLogin = () => {
     googleRegister()
       .then((result) => {
         console.log(result);
+        navigate('/');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleGithubLogin = () => {
+    githubRegister()
+      .then((result) => {
+        console.log(result);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -32,6 +44,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         setSuccessMessage("User logged in successfully!");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error.message);
@@ -133,7 +146,9 @@ const Login = () => {
                   <FcGoogle />
                   <span>Continue with google</span>
                 </button>
-                <button className="btn w-full btn-light text-lg space-x-3">
+                <button
+                  onClick={handleGithubLogin}
+                  className="btn w-full btn-light text-lg space-x-3">
                   <ImGithub />
                   <span>Continue with github</span>
                 </button>

@@ -8,12 +8,14 @@ import {
   updateProfile,
   signInWithPopup,
   GoogleAuthProvider,
+  GithubAuthProvider,
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const registerUser = (email, password) => {
@@ -23,7 +25,10 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   const googleRegister = () => {
-    return signInWithPopup(auth, provider);
+    return signInWithPopup(auth, googleProvider);
+  };
+  const githubRegister = () => {
+    return signInWithPopup(auth, githubProvider);
   };
   const logOut = () => {
     return signOut(auth);
@@ -52,6 +57,7 @@ const AuthProvider = ({ children }) => {
     user,
     registerUser,
     googleRegister,
+    githubRegister,
     loginUser,
     setProfile,
     logOut,

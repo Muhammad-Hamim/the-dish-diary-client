@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
-import logo from '../../assets/logo.png'
+import logo from "../../assets/logo.png";
 
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -34,10 +34,18 @@ const NavigationBar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
               <li>
-                <Link to="/">Home</Link>
+                <NavLink
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                  to="/">
+                  Home
+                </NavLink>
               </li>
               <li>
-                <a>Blog</a>
+                <NavLink
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                  to="/blog">
+                  Blog
+                </NavLink>
               </li>
               <li>
                 <a>Recipe</a>
@@ -51,10 +59,18 @@ const NavigationBar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to="/">Home</Link>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "")}
+                to="/">
+                Home
+              </NavLink>
             </li>
             <li>
-              <a>Blog</a>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "")}
+                to="/blog">
+                Blog
+              </NavLink>
             </li>
             <li>
               <a>Recipe</a>
@@ -76,9 +92,7 @@ const NavigationBar = () => {
                   tabIndex={0}
                   className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                   <li>
-                    <p className="justify-between">
-                      {user.displayName}
-                    </p>
+                    <p className="justify-between">{user.displayName}</p>
                   </li>
                   <li>
                     <p>{user.email}</p>

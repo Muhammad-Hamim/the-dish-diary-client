@@ -4,31 +4,9 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-neutral lg:px-24 px-8 py-10">
-      <footer className="footer grid-cols-3 justify-items-center text-neutral-content">
-        <div>
-          <span className="footer-title">Services</span>
-          <a className="link link-hover">Home</a>
-          <a className="link link-hover">Blog</a>
-          <a className="link link-hover">Chef</a>
-          <a className="link link-hover">Recipe</a>
-        </div>
-        <div>
-          <span className="footer-title">Company</span>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
-        </div>
-        <div>
-          <span className="footer-title">Legal</span>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
-        </div>
-      </footer>
-      <div className="footer lg:grid-cols-2 lg:justify-items-center py-10 bg-neutral text-neutral-content">
-        <div>
+    <div className="bg-gray-900 lg:px-24 px-8 py-10">
+      <div className="footer lg:grid-cols-2 lg:justify-items-center py-10 text-neutral-content">
+        <div className="flex gap-8 lg:block items-center">
           <Link to="/">
             <img className="w-fit h-20" src={logo} alt="" />
           </Link>
@@ -74,6 +52,29 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="footer mb-6 grid-cols-3 justify-items-center text-neutral-content">
+        <div>
+          <span className="footer-title">Services</span>
+          <a className="link link-hover">Home</a>
+          <a className="link link-hover">Blog</a>
+          <a className="link link-hover">Chef</a>
+          <a className="link link-hover">Recipe</a>
+        </div>
+        <div>
+          <span className="footer-title">Company</span>
+          <a className="link link-hover">About us</a>
+          <a className="link link-hover">Contact</a>
+          <a className="link link-hover">Jobs</a>
+          <a className="link link-hover">Press kit</a>
+        </div>
+        <div>
+          <span className="footer-title">Legal</span>
+          <a className="link link-hover">Terms of use</a>
+          <a className="link link-hover">Privacy policy</a>
+          <a className="link link-hover">Cookie policy</a>
+        </div>
+      </div>
+
       <div>
         <p className="text-center text-neutral-content">
           Copyright © 2023 - All right reserved by The Dish Diary

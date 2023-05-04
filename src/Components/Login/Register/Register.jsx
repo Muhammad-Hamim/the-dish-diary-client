@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
-  const { registerUser, setProfile, googleRegister } = useContext(AuthContext);
+  const { registerUser, setProfile, googleRegister, githubRegister } =
+    useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
   const [name, setName] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
@@ -19,6 +20,15 @@ const Register = () => {
   
 const handleGoogleLogin = () => {
   googleRegister()
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+const handleGithubLogin = () => {
+  githubRegister()
     .then((result) => {
       console.log(result);
     })
@@ -189,7 +199,7 @@ const handleGoogleLogin = () => {
                   <FcGoogle />
                   <span>Continue with google</span>
                 </button>
-                <button className="btn w-full btn-light text-lg space-x-3">
+                <button onClick={handleGithubLogin} className="btn w-full btn-light text-lg space-x-3">
                   <ImGithub />
                   <span>Continue with github</span>
                 </button>
