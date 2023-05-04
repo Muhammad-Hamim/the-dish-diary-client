@@ -8,12 +8,22 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
-  const [showPass, setShowPass] = useState(true);
+  const { loginUser, googleRegister } = useContext(AuthContext);
+  const [showPass, setShowPass] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
+  const handleGoogleLogin = () => {
+    googleRegister()
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const handleLogin = (e) => {
     setErrorMessage(null);
     setSuccessMessage(null);
@@ -117,7 +127,9 @@ const Login = () => {
                 <span className="border-t-[1px] border-slate-900 w-full"></span>
               </div>
               <div className="card-actions ">
-                <button className="btn w-full btn-light text-lg space-x-3">
+                <button
+                  onClick={handleGoogleLogin}
+                  className="btn w-full btn-light text-lg space-x-3">
                   <FcGoogle />
                   <span>Continue with google</span>
                 </button>

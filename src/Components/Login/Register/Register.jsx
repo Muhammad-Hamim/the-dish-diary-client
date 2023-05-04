@@ -8,15 +8,25 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
-  const { registerUser, setProfile } = useContext(AuthContext);
+  const { registerUser, setProfile, googleRegister } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
   const [name, setName] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPass, setShowPass] = useState(true);
+  const [showPass, setShowPass] = useState(false);
 
   
+const handleGoogleLogin = () => {
+  googleRegister()
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
   const handleRegister = (event) => {
     event.preventDefault();
     setErrorMessage('');
@@ -173,7 +183,9 @@ const Register = () => {
                 <span className="border-t-[1px] border-slate-900 w-full"></span>
               </div>
               <div className="card-actions ">
-                <button className="btn w-full btn-light text-lg space-x-3">
+                <button
+                  onClick={handleGoogleLogin}
+                  className="btn w-full btn-light text-lg space-x-3">
                   <FcGoogle />
                   <span>Continue with google</span>
                 </button>

@@ -1,13 +1,15 @@
 import React from "react";
-import NavigationBar from "../../Header/NavigationBar";
 import { Outlet } from "react-router-dom";
-import Footer from "../../Footer/Footer";
 import Hero from "../Main/Hero";
+import OurServices from "../Main/OurServices";
+import Chefs from "../Main/Chef/Chefs";
 
 const Home = () => {
   return (
     <>
       <Hero></Hero>
+      <OurServices></OurServices>
+      <Chefs></Chefs>
     </>
   );
 };

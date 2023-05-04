@@ -12,7 +12,7 @@ const NavigationBar = () => {
   };
   return (
     <div>
-      <div className="navbar bg-base-100 lg:px-12">
+      <div className="navbar bg-base-100 lg:px-24 py-6">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -90,7 +90,7 @@ const NavigationBar = () => {
               </div>
             </>
           ) : (
-            <Link to="/login" className="btn">
+            <Link to="/login" className="btn btn-primary">
               Login
             </Link>
           )}
