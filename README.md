@@ -1,6 +1,6 @@
 # The Dish Diary Website
 # Project Overview
-# Website live server link: https://cheerful-custard-9721ed.netlify.app/
+# Website live server link: https://the-dish-diary-auth-3421e.web.app/
 
 ***
 This is a Chef recipe hunter website. wher you can find some chef and their recipe
@@ -23,5 +23,6 @@ A list of technologies used within the project:
 * If you are new in this website you find the log in button on the navbar. But if you already logged into this website you will find your image 
 * When you hover on the your image you will see you name. If you click on your image their is a dropdown section where you see your name, email and a logout button. 
 * If you click on the log out button. You will be logged out form the website.
+* On the Hero section you will find a banner image and a welcome message
 
 
