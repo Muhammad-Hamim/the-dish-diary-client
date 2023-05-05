@@ -1,50 +1,46 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "react-toastify/dist/ReactToastify.css";
+import AuthProvider from "./Components/Providers/AuthProvider";
+import { ToastContainer } from "react-toastify";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./Components/Layout/Home/Home.jsx";
+import Main from "./Components/Layout/Main";
+import Home from "./Components/Layout/Home";
+import Blog from "./Components/Pages/Blog/Blog";
 import Login from "./Components/Login/Login/Login";
 import Register from "./Components/Login/Register/Register";
-import Main from "./Components/Layout/Home/Main";
-import AuthProvider from "./Components/Providers/AuthProvider";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
-import NotFound from "./Components/ErrorPage/NotFound";
-import Recipe from "./Components/Layout/Main/Chef/Recipe/Recipe";
-import SingleChef from "./Components/Layout/Main/Chef/SingleChef";
-import Chef from "./Components/Layout/Main/Chef/Chef";
-import Blog from "./Components/Layout/Main/Blog/Blog";
+import Chef from "./Components/Pages/Chef/Chef/Chef";
+import Recipe from "./Components/Pages/Chef/Recipe/Recipe";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
-    errorElement: <NotFound></NotFound>,
+    element: <Main />,
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <Home />,
       },
-      
       {
         path: "/blog",
-        element: <Blog></Blog>,
+        element: <Blog />,
       },
       {
         path: "/login",
-        element: <Login></Login>,
+        element: <Login />,
       },
       {
         path: "/register",
         element: <Register />,
       },
       {
-        path: "/recipe",
-        element: <Chef></Chef>,
+        path: "/chef",
+        element: <Chef />,
       },
       {
         path: "/recipe/:id",
-        element: <Recipe></Recipe>,
+        element: <Recipe />,
         loader: ({ params }) => {
           return fetch(
             `https://the-dish-diary-server.vercel.app/recipe/${params.id}`
@@ -54,7 +50,6 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
