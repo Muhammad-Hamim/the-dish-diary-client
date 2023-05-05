@@ -9,7 +9,7 @@ const Recipe = () => {
   const recipe = useLoaderData();
   const [chef, setChef] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  console.log(recipe);
   useEffect(() => {
     const loadData = async () => {
       const res = await fetch(
@@ -69,7 +69,7 @@ const Recipe = () => {
         </div>
         <div className="grid grid-cols-1 gap-12 py-16 px-8 lg:px-24">
           {recipe.map((singleRecipe) => {
-            return <SingleRecipe recipe={singleRecipe}></SingleRecipe>;
+            return <SingleRecipe key={singleRecipe.key} recipe={singleRecipe}></SingleRecipe>;
           })}
         </div>
       </div>
