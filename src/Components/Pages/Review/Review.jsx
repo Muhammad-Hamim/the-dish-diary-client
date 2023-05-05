@@ -21,7 +21,7 @@ const Review = () => {
         style={{
           backgroundImage: `url(${picture})`,
         }}>
-        <Marquee gradient gradientColor={[42, 48, 60]} speed={70}>
+        <Marquee speed={70}>
           <div className="flex gap-20">
             <div className="card w-72 lg:w-96 bg-[#2a303c] bg-opacity-50 shadow-xl ml-20">
               <figure className="w-12 h-12 ring-2 ring-violet-80000 ring-offset-2 rounded-full mx-auto mt-6 -mb-3">
