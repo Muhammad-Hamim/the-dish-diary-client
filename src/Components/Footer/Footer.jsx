@@ -86,7 +86,7 @@ const Footer = () => {
       </div>
 
       <div>
-        <p className="text-center text-neutral-content">
+        <p className="text-center text-neutral-content border-t-2 border-white py-10">
           Copyright © 2023 - All right reserved by The Dish Diary
         </p>
       </div>

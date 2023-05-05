@@ -1,7 +1,6 @@
 import React from "react";
 import { AiTwotoneLike } from "react-icons/ai";
-import LazyLoad from "react-lazy-load";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 
 const SingleChef = ({ chef }) => {
@@ -10,14 +9,9 @@ const SingleChef = ({ chef }) => {
     <div>
       <div className="card card-compact bg-base-100 shadow-xl">
         <figure>
-          <LazyLoadImage
-            effect="blur"
-            alt={picture.alt}
-            height={picture.height}
-            src={picture.src} // use normal <img> attributes as props
-            width={picture.width}
-          />
+          <LazyLoad height={362}>
           <img className="w-full lg:h-[362px]" src={picture} alt="" />
+          </LazyLoad>
         </figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>

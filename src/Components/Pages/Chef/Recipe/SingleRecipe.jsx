@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Rating from "react-rating";
 import { FaRegStar, FaStar, FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { toast } from "react-toastify";
+import LazyLoad from "react-lazyload";
 
 const SingleRecipe = ({ recipe }) => {
   const [addBookmark, setAddBookmark] = useState(true);
@@ -10,7 +11,9 @@ const SingleRecipe = ({ recipe }) => {
     <div>
       <div className="card lg:card-side bg-base-100 lg:h-[450px] shadow-xl">
         <figure className="bg-cover bg-center lg:w-1/2">
-          <img className="w-full h-full" src={picture} alt="" />
+          <LazyLoad height={400}>
+            <img className="w-full h-full" src={picture} alt="" />
+          </LazyLoad>
         </figure>
         <div className="card-body lg:w-1/2">
           <h2 className="card-title font-bold">{recipe_name}</h2>

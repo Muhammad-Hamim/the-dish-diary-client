@@ -8,6 +8,9 @@ const Blog = () => {
           This is Blog Section
         </h2>
       </div>
+      <div className="py-5">
+        <button className="btn btn-primary">Download Pdf</button>
+      </div>
       <div className="py-16 space-y-4">
         <div>
           <h2 className="text-3xl font-semibold text-base-content">
@@ -83,9 +86,9 @@ const Blog = () => {
               applications and APIs.
             </li>
             <li className="list-decimal">
-              Node.js is low-level and requires more manual configuration,
-              while Express.js is higher-level and provides more abstractions
-              and convenience.
+              Node.js is low-level and requires more manual configuration, while
+              Express.js is higher-level and provides more abstractions and
+              convenience.
             </li>
             <li className="list-decimal">
               Node.js can be used for building various types of applications,
@@ -111,9 +114,9 @@ const Blog = () => {
             UI, while encapsulating complex logic in reusable functions. Here
             are some reasons why you might want to create a custom hook:
             <li className="list-decimal">
-              Reusability: Custom hooks allow you to reuse stateful logic
-              across multiple components, making your code more modular and
-              easier to maintain.
+              Reusability: Custom hooks allow you to reuse stateful logic across
+              multiple components, making your code more modular and easier to
+              maintain.
             </li>
             <li className="list-decimal">
               Abstraction: Custom hooks allow you to abstract away complex
