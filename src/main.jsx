@@ -13,6 +13,7 @@ import Register from "./Components/Login/Register/Register";
 import Chef from "./Components/Pages/Chef/Chef/Chef";
 import Recipe from "./Components/Pages/Chef/Recipe/Recipe";
 import NotFound from './Components/ErrorPage/NotFound'
+import Contact from "./Components/Pages/Contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/chef",
         element: <Chef />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/recipe/:id",

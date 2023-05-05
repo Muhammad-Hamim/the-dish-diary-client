@@ -5,13 +5,13 @@ import welcome from "../../../assets/LottieAnimation/hero.json";
 
 const Hero = () => {
   return (
-    <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:px-24 bg-[#e6e6e6]">
+    <div className="lg:grid lg:gap-5 lg:grid-cols-2 lg:px-24 bg-[#e6e6e6]">
       <div className="hidden lg:block">
         <img src={hero} alt="" />
       </div>
-      <div className="flex justify-center flex-col items-center">
+      <div className="flex justify-center p-8 lg:p-0 flex-col items-center">
         <Lottie className="w-52 mx-auto" animationData={welcome} loop={true} />
-        <h2 className="text-5xl font-bold text-primary text-center">
+        <h2 className="text-3xl lg:text-5xl font-bold text-primary text-center">
           Welcome to Our Dish Diary Website
         </h2>
         <p className="my-5 text-center">

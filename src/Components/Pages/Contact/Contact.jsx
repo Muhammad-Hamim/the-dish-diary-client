@@ -10,7 +10,7 @@ const Contact = () => {
           backgroundImage: `url(${bg})`,
         }}>
         <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content grid-cols-1 text-center text-neutral-content">
+        <div className="hero-content flex-col text-center text-neutral-content">
           <div className="text-center">
             <h2 className="text-5xl font-bold text-accent">Contact us</h2>
             <p className="text-lg">

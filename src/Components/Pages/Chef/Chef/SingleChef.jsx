@@ -8,7 +8,7 @@ const SingleChef = ({ chef }) => {
     <div>
       <div className="card card-compact bg-base-100 shadow-xl">
         <figure>
-          <img className="w-full h-[362px]" src={picture} alt="" />
+          <img className="w-full lg:h-[362px]" src={picture} alt="" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>

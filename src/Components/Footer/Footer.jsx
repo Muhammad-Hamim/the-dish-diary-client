@@ -54,16 +54,26 @@ const Footer = () => {
       </div>
       <div className="footer mb-6 grid-cols-3 justify-items-center text-neutral-content">
         <div>
-          <span className="footer-title">Services</span>
-          <a className="link link-hover">Home</a>
-          <a className="link link-hover">Blog</a>
-          <a className="link link-hover">Chef</a>
-          <a className="link link-hover">Recipe</a>
+          <span className="footer-title">Navigation</span>
+          <Link to='/'>
+            <button className="link link-hover">Home</button>
+          </Link>
+          <Link to='/blog'>
+            <button className="link link-hover">Blog</button>
+          </Link>
+          <Link to='/chef'>
+            <button className="link link-hover">Chef</button>
+          </Link>
+          <Link to='/recipe'>
+            <button className="link link-hover">Recipe</button>
+          </Link>
         </div>
         <div>
           <span className="footer-title">Company</span>
           <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
+          <Link to="/contact">
+            <button className="link link-hover">Contact</button>
+          </Link>
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Press kit</a>
         </div>

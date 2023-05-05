@@ -17,26 +17,42 @@ const OurServices = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 py-8">
         <div className="bg-[#e6e6e6] rounded-md p-10 text-center">
-          <Lottie className='w-80 h-52' animationData={delivery} loop={true} />
+          <Lottie
+            className="w-52 lg:w-80 h-52"
+            animationData={delivery}
+            loop={true}
+          />
           <h3 className="text-2xl text-primary font-bold">Food Delivery</h3>
           <p className="text-neutral">
             We provide home delivery all over the city
           </p>
         </div>
         <div className="bg-[#e6e6e6] rounded-md p-10 text-center">
-            <Lottie className='w-80 h-52' animationData={HealthyFood} loop={true} />
+          <Lottie
+            className="w-52 lg:w-80 h-52"
+            animationData={HealthyFood}
+            loop={true}
+          />
           <h3 className="text-2xl text-primary font-bold">Healthy Food</h3>
           <p className="text-neutral">We always conscious about food hygiene</p>
         </div>
         <div className="bg-[#e6e6e6] rounded-md p-10 text-center">
-          <Lottie className='w-80 h-52' animationData={Chef} loop={true} />
+          <Lottie
+            className="w-52 lg:w-80 h-52"
+            animationData={Chef}
+            loop={true}
+          />
           <h3 className="text-2xl text-primary font-bold">Experience Chef</h3>
           <p className="text-neutral">
             We have 30+ experienced chef to serve you.
           </p>
         </div>
         <div className="bg-[#e6e6e6] rounded-md p-10 text-center">
-          <Lottie className='w-80 h-52' animationData={delivery} loop={true} />
+          <Lottie
+            className="w-52 lg:w-80 h-52"
+            animationData={delivery}
+            loop={true}
+          />
           <h3 className="text-2xl text-primary font-bold">Food Delivery</h3>
           <p className="text-neutral">
             We provide home delivery all over the city
