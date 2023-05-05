@@ -15,7 +15,7 @@ import LazyLoad from "react-lazyload";
 
 const Review = () => {
   return (
-    <LazyLoad height={500}>
+    <LazyLoad height={400}>
       <div
         className="bg-cover bg-center w-full flex py-20"
         style={{
