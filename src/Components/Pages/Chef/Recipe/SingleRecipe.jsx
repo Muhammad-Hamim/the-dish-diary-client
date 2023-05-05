@@ -48,8 +48,8 @@ const SingleRecipe = ({ recipe }) => {
                   className="cursor-pointer"
                   onClick={() => {
                     setAddBookmark(false);
-                    toast(
-                      "Successfully this item added to your favorite list!"
+                    toast.success(
+                      "Successfully added to your favorite list!"
                     );
                   }}>
                   <FaRegBookmark></FaRegBookmark>
