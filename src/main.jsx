@@ -12,11 +12,13 @@ import Login from "./Components/Login/Login/Login";
 import Register from "./Components/Login/Register/Register";
 import Chef from "./Components/Pages/Chef/Chef/Chef";
 import Recipe from "./Components/Pages/Chef/Recipe/Recipe";
+import NotFound from './Components/ErrorPage/NotFound'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <NotFound/>,
     children: [
       {
         path: "/",
