@@ -4,12 +4,14 @@ import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
   const { loginUser, googleRegister, githubRegister } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/recipe/1';
   const [showPass, setShowPass] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -21,6 +23,7 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         navigate('/');
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -31,6 +34,7 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -45,6 +49,7 @@ const Login = () => {
         console.log(result.user);
         setSuccessMessage("User logged in successfully!");
         navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);

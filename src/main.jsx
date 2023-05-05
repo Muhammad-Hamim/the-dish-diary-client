@@ -14,6 +14,7 @@ import Chef from "./Components/Pages/Chef/Chef/Chef";
 import Recipe from "./Components/Pages/Chef/Recipe/Recipe";
 import NotFound from './Components/ErrorPage/NotFound'
 import Contact from "./Components/Pages/Contact/Contact";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/recipe/:id",
-        element: <Recipe />,
+        element: <PrivateRoute><Recipe></Recipe></PrivateRoute>,
         loader: ({ params }) => {
           return fetch(
             `https://the-dish-diary-server.vercel.app/recipe/${params.id}`
