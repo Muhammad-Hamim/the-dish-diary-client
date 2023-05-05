@@ -4,25 +4,30 @@ import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
   const { registerUser, setProfile, googleRegister, githubRegister } =
     useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/recipe/1";
+
   const [errorMessage, setErrorMessage] = useState("");
   const [name, setName] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
-  const navigate = useNavigate();
+
   
 const handleGoogleLogin = () => {
   googleRegister()
     .then((result) => {
       console.log(result);
       navigate("/");
+      navigate(from, { replace: true });
     })
     .catch((error) => {
       console.log(error);
@@ -33,6 +38,7 @@ const handleGithubLogin = () => {
     .then((result) => {
       console.log(result);
       navigate("/");
+      navigate(from, { replace: true });
     })
     .catch((error) => {
       console.log(error);
@@ -71,6 +77,7 @@ const handleGithubLogin = () => {
         setEmail("");
         setPassword("");
         navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
