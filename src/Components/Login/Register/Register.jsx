@@ -12,7 +12,7 @@ const Register = () => {
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/recipe/1";
+  const from = location.state?.from?.pathname || "/";
 
   const [errorMessage, setErrorMessage] = useState("");
   const [name, setName] = useState("");

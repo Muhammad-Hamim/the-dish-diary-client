@@ -11,7 +11,7 @@ const Login = () => {
   const { loginUser, googleRegister, githubRegister } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/recipe/1';
+  const from = location.state?.from?.pathname || '/';
   const [showPass, setShowPass] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
