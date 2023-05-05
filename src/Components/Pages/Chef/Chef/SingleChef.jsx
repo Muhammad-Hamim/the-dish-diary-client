@@ -13,7 +13,7 @@ const SingleChef = ({ chef }) => {
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
           <p className="text-slate-500 font-medium">
-            Experience: {experience_years} <years></years>
+            Experience: {experience_years} years
           </p>
           <p className="text-slate-500 font-medium">
             Number of Recipe: {recipe_count}
