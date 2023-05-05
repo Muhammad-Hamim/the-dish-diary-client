@@ -9,7 +9,6 @@ const Recipe = () => {
   const recipe = useLoaderData();
   const [chef, setChef] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(recipe);
   useEffect(() => {
     const loadData = async () => {
       const res = await fetch(
@@ -17,7 +16,6 @@ const Recipe = () => {
       );
       const chefInfo = await res.json();
       setChef(chefInfo);
-      console.log(chefInfo);
       setLoading(false);
     };
     loadData();
