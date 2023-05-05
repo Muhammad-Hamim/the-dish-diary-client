@@ -19,9 +19,9 @@ const Review = () => {
       style={{
         backgroundImage: `url(${picture})`,
       }}>
-      <Marquee gradient gradientColor={[42,48,60]} speed={70}>
+      <Marquee gradient gradientColor={[42, 48, 60]} speed={70}>
         <div className="flex gap-20">
-          <div className="card w-96 bg-[#2a303c] bg-opacity-50 shadow-xl">
+          <div className="card w-96 bg-[#2a303c] bg-opacity-50 shadow-xl ml-20">
             <figure className="w-12 h-12 ring-2 ring-violet-80000 ring-offset-2 rounded-full mx-auto mt-6 -mb-3">
               <img src={r1} alt="" className="w-full h-full" />
             </figure>
@@ -52,7 +52,7 @@ const Review = () => {
               <img src={r3} alt="" className="w-full h-full" />
             </figure>
             <div className="card-body text-center">
-              <h2 className="text-slate-400 text-lg font-semibold">David</h2>
+              <h2 className="text-slate-400 text-lg font-semibold">Andrew</h2>
               <p className="text-primary-content italic">
                 "The variety of recipes on The Dish Dairy is impressive. From
                 classic dishes to unique flavor combinations, there's always
@@ -65,7 +65,9 @@ const Review = () => {
               <img src={r4} alt="" className="w-full h-full" />
             </figure>
             <div className="card-body text-center">
-              <h2 className="text-slate-400 text-lg font-semibold">David</h2>
+              <h2 className="text-slate-400 text-lg font-semibold">
+                Christopher
+              </h2>
               <p className="text-primary-content italic">
                 "The variety of recipes on The Dish Dairy is impressive. From
                 classic dishes to unique flavor combinations, there's always
@@ -78,7 +80,7 @@ const Review = () => {
               <img src={r5} alt="" className="w-full h-full" />
             </figure>
             <div className="card-body text-center">
-              <h2 className="text-slate-400 text-lg font-semibold">David</h2>
+              <h2 className="text-slate-400 text-lg font-semibold">Daniel</h2>
               <p className="text-primary-content italic">
                 "The variety of recipes on The Dish Dairy is impressive. From
                 classic dishes to unique flavor combinations, there's always
@@ -91,7 +93,7 @@ const Review = () => {
               <img src={r6} alt="" className="w-full h-full" />
             </figure>
             <div className="card-body text-center">
-              <h2 className="text-slate-400 text-lg font-semibold">David</h2>
+              <h2 className="text-slate-400 text-lg font-semibold">Matthew</h2>
               <p className="text-primary-content italic">
                 "The variety of recipes on The Dish Dairy is impressive. From
                 classic dishes to unique flavor combinations, there's always
@@ -104,7 +106,7 @@ const Review = () => {
               <img src={r7} alt="" className="w-full h-full" />
             </figure>
             <div className="card-body text-center">
-              <h2 className="text-slate-400 text-lg font-semibold">David</h2>
+              <h2 className="text-slate-400 text-lg font-semibold">James</h2>
               <p className="text-primary-content italic">
                 "The variety of recipes on The Dish Dairy is impressive. From
                 classic dishes to unique flavor combinations, there's always
@@ -117,7 +119,7 @@ const Review = () => {
               <img src={r8} alt="" className="w-full h-full" />
             </figure>
             <div className="card-body text-center">
-              <h2 className="text-slate-400 text-lg font-semibold">David</h2>
+              <h2 className="text-slate-400 text-lg font-semibold">Ethan</h2>
               <p className="text-primary-content italic">
                 "The variety of recipes on The Dish Dairy is impressive. From
                 classic dishes to unique flavor combinations, there's always
@@ -130,7 +132,9 @@ const Review = () => {
               <img src={r9} alt="" className="w-full h-full" />
             </figure>
             <div className="card-body text-center">
-              <h2 className="text-slate-400 text-lg font-semibold">David</h2>
+              <h2 className="text-slate-400 text-lg font-semibold">
+                Alexander
+              </h2>
               <p className="text-primary-content italic">
                 "The variety of recipes on The Dish Dairy is impressive. From
                 classic dishes to unique flavor combinations, there's always
@@ -143,7 +147,7 @@ const Review = () => {
               <img src={r10} alt="" className="w-full h-full" />
             </figure>
             <div className="card-body text-center">
-              <h2 className="text-slate-400 text-lg font-semibold">David</h2>
+              <h2 className="text-slate-400 text-lg font-semibold">Jonathan</h2>
               <p className="text-primary-content italic">
                 "The variety of recipes on The Dish Dairy is impressive. From
                 classic dishes to unique flavor combinations, there's always

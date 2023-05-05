@@ -81,7 +81,7 @@ const Login = () => {
                   <label className="label">
                     <span className="label-text">Password</span>
                   </label>
-                  <div class="relative">
+                  <div className="relative">
                     <input
                       type={showPass ? "text" : "password"}
                       value={password}

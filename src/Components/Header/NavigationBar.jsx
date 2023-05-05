@@ -50,7 +50,7 @@ const NavigationBar = () => {
               <li>
                 <NavLink
                   className={({ isActive }) => (isActive ? "active" : "")}
-                  to="/recipe">
+                  to="/chef">
                   Chef
                 </NavLink>
               </li>

@@ -1,21 +1,20 @@
 import React from "react";
-import bg from "../../../assets/Hero3.jpg";
+import Lottie from "lottie-react";
+import contact from "../../../assets/LottieAnimation/contact-us.json";
 
 const Contact = () => {
   return (
     <div>
-      <div
-        className="hero min-h-screen"
-        style={{
-          backgroundImage: `url(${bg})`,
-        }}>
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content flex-col text-center text-neutral-content">
-          <div className="text-center">
-            <h2 className="text-5xl font-bold text-accent">Contact us</h2>
-            <p className="text-lg">
-              Your message is very important to us! Don't shy, Please text us!
-            </p>
+      <div className="bg-[#e6e6e6] px-8 lg:px-24 py-12">
+        <div className="text-center">
+          <h2 className="text-5xl font-bold text-primary">Contact us</h2>
+          <p className="text-lg text-gray-900">
+            Your message is very important to us! Don't shy, Please text us!
+          </p>
+        </div>
+        <div className="grid lg:grid-cols-2 items-center">
+          <div>
+            <Lottie animationData={contact} loop={true}></Lottie>
           </div>
           <div className="card border-5 border-transparent w-full shadow-gray-500 bg-transparent">
             <div className="card-body space-y-5">
