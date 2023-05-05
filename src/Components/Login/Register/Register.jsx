@@ -108,6 +108,7 @@ const handleGithubLogin = () => {
                       setName(e.target.value);
                     }}
                     placeholder="name"
+                    required
                     className="input input-bordered"
                   />
                 </div>
