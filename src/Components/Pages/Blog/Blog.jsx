@@ -1,6 +1,7 @@
 import React from "react";
-
+import ReactToPdf from 'react-to-pdf'
 const Blog = () => {
+  const ref = React.createRef();
   return (
     <div className="px-8 lg:px-44 py-12">
       <div className="text-center">
@@ -9,9 +10,20 @@ const Blog = () => {
         </h2>
       </div>
       <div className="py-5">
-        <button className="btn btn-primary">Download Pdf</button>
+        <ReactToPdf
+          targetRef={ref}
+          filename="blog.pdf"
+          scale={1}>
+          {({ toPdf }) => (
+            <button onClick={toPdf} className="btn btn-primary">
+              Download Pdf
+            </button>
+          )}
+        </ReactToPdf>
       </div>
-      <div className="py-16 space-y-4">
+      <div
+        className="py-16 space-y-4"
+        ref={ref}>
         <div>
           <h2 className="text-3xl font-semibold text-base-content">
             Differences between uncontrolled and controlled components?
